@@ -1,26 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Fonts */
+    --font-inter: "Inter", system-ui, sans-serif;
+    --font-poppins: "Poppins", sans-serif;
+
+    /* Brand Colors */
+    --primary: #e63946;
+    --secondary: #f4a261;
+    --dark: #1d1e22;
+    --background: #f9f9f9;
+    --light: #ffffff;
+    --success: #2a9d8f;
+    --danger: #2d2827;
+    --gray: #7d7d7d;
+
+    /* Headings */
+    --font-size-h1: 2rem; /* 32px */
+    --line-height-h1: 1.4;
+
+    --font-size-h2: 1.5rem; /* 24px */
+    --line-height-h2: 1.4;
+
+    --font-size-h3: 1.25rem; /* 20px */
+    --line-height-h3: 1.4;
+
+    --font-size-h4: 1.125rem; /* 18px */
+    --line-height-h4: 1.4;
+
+    --font-size-h5: 1rem;
+    --line-height-h5: 1.4;
+
+    --font-size-paragraph-1: 1rem;
+    --line-height-paragraph-1: 1.5;
+
+    --font-size-paragraph-2: 0.875rem;
+    --line-height-paragraph-2: 1.5;
+
+    --font-size-paragraph-3: 0.75rem;
+    --line-height-paragraph-3: 1.5;
+
+    /* Small, label and button */
+    --font-size-small: 0.75rem; /* 12px */
+    --line-height-small: 1.4;
+
+    --font-size-label: 0.875rem; /* 14px */
+    --line-height-label: 1.4;
+
+    --font-size-button: 1rem; /* 16px */
+    --line-height-button: 1.4;
+}
+
+@media (max-width: 768px) {
+    :root {
+        /* Headings */
+        --font-size-h1: 1.875rem; /* 30px */
+        --line-height-h1: 1.4;
+
+        --font-size-h2: 1.5rem; /* 24px */
+        --line-height-h2: 1.4;
+
+        --font-size-h3: 1.25rem; /* 20px */
+        --line-height-h3: 1.4;
+
+        --font-size-h4: 1.125rem;
+        --line-height-h4: 1.4;
+
+        --font-size-h5: 1rem; /* 16px */
+        --line-height-h5: 1.4;
+
+        --font-size-button: 0.875rem; /* 14px */
+    }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    /* Fonts */
+    --font-inter: var(--font-inter);
+    --font-poppins: var(--font-poppins);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Typography Utilities - Define once, use everywhere */
+@utility text-h1 {
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: 700;
+    font-family: var(--font-poppins);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility text-h2 {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: 600;
+    font-family: var(--font-poppins);
+}
+
+@utility text-h3 {
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: 600;
+    font-family: var(--font-poppins);
+}
+
+@utility text-h4 {
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: 600;
+    font-family: var(--font-poppins);
+}
+
+@utility text-h5 {
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+    font-weight: 600;
+    font-family: var(--font-poppins);
+}
+
+@utility text-paragraph-1 {
+    font-size: var(--font-size-paragraph-1);
+    line-height: var(--line-height-paragraph-1);
+    font-weight: 400;
+    font-family: var(--font-inter);
+}
+
+@utility text-paragraph-2 {
+    font-size: var(--font-size-paragraph-2);
+    line-height: var(--line-height-paragraph-2);
+    font-weight: 400;
+    font-family: var(--font-inter);
+}
+
+@utility text-paragraph-3 {
+    font-size: var(--font-size-paragraph-3);
+    line-height: var(--line-height-paragraph-3);
+    font-weight: 400;
+    font-family: var(--font-inter);
+}
+
+@utility text-small {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+    font-weight: 400;
+    font-family: var(--font-inter);
+}
+
+@layer components {
+    h1 {
+        @apply text-h1;
+    }
+
+    h2 {
+        @apply text-h2;
+    }
+
+    h3 {
+        @apply text-h3;
+    }
+
+    h4 {
+        @apply text-h4;
+    }
+
+    h5 {
+        @apply text-h5;
+    }
+}
+
+@layer base {
+    html {
+        font-family: var(--font-inter);
+    }
+
+    body {
+        font-family: var(--font-inter);
+        font-size: var(--font-size-paragraph-1);
+        font-weight: 400;
+        background-color: var(--background);
+    }
+
+    p {
+        font-family: var(--font-inter);
+        font-weight: 400;
+        font-size: var(--font-size-paragraph-1);
+        line-height: var(--line-height-paragraph-1);
+    }
+
+    small {
+        font-family: var(--font-inter);
+        font-weight: 400;
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-small);
+    }
+
+    label {
+        font-family: var(--font-inter);
+        font-weight: 500;
+        font-size: var(--font-size-label);
+        line-height: var(--line-height-label);
+    }
+
+    button {
+        font-family: var(--font-inter);
+        font-weight: 600;
+        font-size: var(--font-size-button);
+        line-height: var(--line-height-button);
+    }
 }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
+import { Header } from "@/shared/components/layout/Header";
+import { Footer } from "@/shared/components/layout/Footer/Footer";
 
 export const metadata: Metadata = {
     title: "PizzaStack",
@@ -21,8 +23,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="pt-BR">
-            <body className="bg-amber-900">{children}</body>
-        </html>
+                
+        <>
+            <Header />
+            <main>{children}</main>
+            <Footer isAdmin={false} />
+        </>
     );
 }
