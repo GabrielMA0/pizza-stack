@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 export type ButtonVariant = "primary" | "secondary";
@@ -6,6 +7,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     variant?: ButtonVariant;
     iconLeft?: ReactNode | string;
     iconRight?: ReactNode | string;
+    href?: string;
 };
 
 function renderIcon(
@@ -27,6 +29,7 @@ export function Button({
     className,
     children,
     type,
+    href,
     ...props
 }: ButtonProps) {
     const base =
@@ -40,11 +43,17 @@ export function Button({
 
     const cls = [base, variants[variant], className].join(" ");
 
-    return (
+    return href ? (
+        <Link href={href} className={cls}>
+            {renderIcon(iconLeft)}
+            {children}
+            {renderIcon(iconRight)}
+        </Link>
+    ): (
         <button className={cls} type={type ?? "button"} {...props}>
             {renderIcon(iconLeft)}
-            <span className="inline-flex items-center">{children}</span>
+            {children}
             {renderIcon(iconRight)}
         </button>
-    );
+    )
 }
