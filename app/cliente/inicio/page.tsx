@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className="p-5 flex flex-col gap-5">
       <section className="relative overflow-hidden rounded-[20px] w-full h-100 shadow-lg">
-        <img
+        <Image
           alt="banner"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSohPBI14NWgCpGnBlmLOnDiCcxxZQadhcFB3HPdZeDgohiAebtjDO-WC035c5mxjpiWcYqZJz-sNYBZk8yGRq0hwudLBra_8gildn4mB1kt20_c4r2VhVvnXlDu004ZN1nUzeh-hwQexrQmfUaw3DSJRiLSIcHE495vZGl5rbKTWTfelPwfXnK8VzQ7E2pF5DHsDqsykgfiPMOtRvFOJC7QQ4NqX2bPtiDrCTF3PjB_3y82fAUFZmok6AZgBb_Szupw3833cSCzk"
           className="absolute inset-0 w-full h-full object-cover"
