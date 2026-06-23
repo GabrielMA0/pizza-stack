@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {Button} from "@/shared/components/ui"
 
 type Product = {
@@ -12,7 +13,7 @@ export function ProductCard({ product }: { product: Product }) {
     return (
         <div className="max-w-62.5 h-100 bg-white rounded-[30px] overflow-hidden shadow-(--shadow)">
             <div className="relative h-50">
-                <img src={product.image} className="w-full h-full aspect-video object-cover" />
+                <Image width={250} height={200} alt={product.name} src={product.image} className="w-full h-full aspect-video object-cover" />
 
                 {product.tag && (
                     <div className="p-2 absolute top-5 left-3 bg-(--secondary) text-white text-small font-semibold rounded-lg">
